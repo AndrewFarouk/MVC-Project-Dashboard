@@ -8,11 +8,5 @@ namespace Demo.BLL.Interfaces
         IEnumerable<Employee> GetEmployeesByDepartmentName(string name);
         IEnumerable<Employee> GetEmployeesWithDepartment(int? id);
         IEnumerable<Employee> Search(string name);
-
-        //Employee GetEmployeeById(int? id);
-        //IEnumerable<Employee> GetAllEmployees();
-        //int Add(Employee employee);
-        //int Update(Employee employee);
-        //int Delete(Employee employee);
     }
 }
