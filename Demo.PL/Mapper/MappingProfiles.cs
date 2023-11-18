@@ -10,7 +10,6 @@ namespace Demo.PL.Mapper
         {
             CreateMap<EmployeeViewModel, Employee>().ReverseMap();
             CreateMap<DepartmentViewModel, Department>().ReverseMap();
-           // CreateMap<Employee, EmployeeViewModel>();
         }
     }
 }
