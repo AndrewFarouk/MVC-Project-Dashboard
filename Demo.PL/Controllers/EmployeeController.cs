@@ -50,21 +50,10 @@ namespace Demo.PL.Controllers
         [HttpPost]
         public async Task<IActionResult> Create(EmployeeViewModel employeeVM)
         {
-            //employee.Department = _unitOfWork.departmentRepository.GetById(employee.DepartmentId);
             ModelState["Department"].ValidationState = ModelValidationState.Valid;
             if (ModelState.IsValid)
             {
                 #region Manual Mapping
-                //Employee employee = new Employee
-                //{
-                //    Name = employeeVM.Name,
-                //    Address = employeeVM.Address,   
-                //    DepartmentId = employeeVM.DepartmentId,
-                //    Email = employeeVM.Email,
-                //    HireDate = employeeVM.HireDate,
-                //    IsActive = employeeVM.IsActive,
-                //    Salary = employeeVM.Salary,
-                //}; 
                 #endregion
                 employeeVM.ImageUrl = DocumentSettings.UploadFile(employeeVM.Image, "Images");
                 var mappedEmployee = _mapper.Map<Employee>(employeeVM);
