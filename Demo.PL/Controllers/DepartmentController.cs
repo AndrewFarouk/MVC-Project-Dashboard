@@ -12,36 +12,24 @@ namespace Demo.PL.Controllers
     [Authorize]
     public class DepartmentController : Controller
     {
-        //private readonly IDepartmentRepository _departmentRepository;
         private readonly ILogger<DepartmentController> _logger;
         private readonly IUnitOfWork _unitOfWork;
         private readonly IMapper _mapper;
 
-        //private readonly IEmployeeRepository employeeRepository;
-
         public DepartmentController(
-            //IDepartmentRepository departmentRepository,
             ILogger<DepartmentController> logger,
             IUnitOfWork unitOfWork,
-            //IEmployeeRepository employeeRepository
             IMapper mapper
             )
         {
-            //_departmentRepository = departmentRepository;
             _logger = logger;
             _unitOfWork = unitOfWork;
             _mapper = mapper;
-            //this.employeeRepository = employeeRepository;
         }
         public async Task<IActionResult> Index()
         {
             var departments = await _unitOfWork.departmentRepository.GetAllAsync();
             var mappedDepartment = _mapper.Map<IEnumerable<DepartmentViewModel>>( departments );
-            //ViewData["Message"] = "Hello From View Data";
-            //ViewBag.MessageBag = "Hello From View Bag";
-
-            //TempData.Keep("Message");
-          
             return View(mappedDepartment);
         }
         [HttpGet]
@@ -70,7 +58,6 @@ namespace Demo.PL.Controllers
         {
             if (id is null)
                 return NotFound();
-            //return RedirectToAction("Error", "Home");
             var department = await _unitOfWork.departmentRepository.GetByIdAsync(id);
             var mappedDepartment = _mapper.Map<DepartmentViewModel>( department);
 
