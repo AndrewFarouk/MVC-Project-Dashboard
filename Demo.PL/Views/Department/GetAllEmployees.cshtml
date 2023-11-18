@@ -1,0 +1,46 @@
+﻿@model IEnumerable<EmployeeViewModel>
+@{
+    ViewData["Title"] = "GetAllEmployees";
+}
+
+
+@if (Model?.Count() > 0)
+{
+<h1 class="text-center text-dark">All Employees in Department</h1>
+<br />
+
+    <table class="table table-striped table-hover">
+        <thead>
+            <tr>
+                @*<th>@Html.DisplayNameFor(x => x.Id)</th>*@
+                <th>@Html.DisplayNameFor(x => x.Name)</th>
+                <th>@Html.DisplayNameFor(M => M.Image)</th>
+                <th>@Html.DisplayNameFor(M => M.Address)</th>
+                <th>@Html.DisplayNameFor(M => M.Email)</th>
+                <th>@Html.DisplayNameFor(M => M.Salary)</th>
+                <th>@Html.DisplayNameFor(M => M.HireDate)</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var employee in Model)
+            {
+                <tr class="text-danger">
+                    @*<td>@employee.Id</td>*@
+                    <td>@employee.Name</td>
+                    <td>
+                        <img src="~/Files/Images/@employee.ImageUrl" class="img-circle" height="40" width="40" alt="Image @employee.Name is Not Found" />
+                    </td>
+                    <td>@Html.DisplayFor(m => employee.Address)</td>
+                    <td>@Html.DisplayFor(m => employee.Email)</td>
+                    <td>@Html.DisplayFor(m => employee.Salary)</td>
+                    <td>@Html.DisplayFor(m => employee.HireDate.Day)-@Html.DisplayFor(m => employee.HireDate.Month)-@Html.DisplayFor(m => employee.HireDate.Year)</td>
+
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <h1 class="text-center alert-warning">No employees found in the selected department.</h1>
+}

@@ -1,0 +1,70 @@
+﻿@model EmployeeViewModel
+
+@{
+    var departments = new SelectList(ViewBag.Departments, "Id", "Name");
+}
+
+@if(Model.ImageUrl is not null)
+{
+    <div class="form-group mb-3">
+        <div style="width: 220px; height: 120px;">
+            <img src="~/Files/Images/@Model.ImageUrl" class="rounded" style="width : 150px; height : 150px" alt="My Image">
+            <input asp-for="@Model.ImageUrl" hidden />
+        </div>
+    </div>
+}
+<br />
+<div class="form-group">
+    <label asp-for="@Model.Name" class="col-form-label"></label>
+    <input asp-for="@Model.Name" class="form-control" readonly />
+</div>
+
+<div class="form-group">
+    <label asp-for="@Model.Address" class="col-form-label"></label>
+    <input asp-for="@Model.Address" class="form-control" readonly />
+</div>
+
+<div class="form-group">
+    <label asp-for="@Model.Age" class="col-form-label"></label>
+    <input asp-for="@Model.Age" class="form-control" readonly />
+</div>
+
+<div class="form-group">
+    <label asp-for="@Model.Salary" class="col-form-label"></label>
+    <input asp-for="@Model.Salary" class="form-control" readonly />
+</div>
+
+<div class="form-group">
+    <label asp-for="@Model.Email" class="col-form-label"></label>
+    <input asp-for="@Model.Email" class="form-control" readonly />
+</div>
+
+<div class="form-group">
+    <label asp-for="@Model.PhoneNumber" class="col-form-label"></label>
+    <input asp-for="@Model.PhoneNumber" class="form-control" readonly />
+</div>
+
+<div class="form-group mb-1">
+    <label asp-for="@Model.HireDate" class="col-form-label"></label>
+    <input asp-for="@Model.HireDate" class="form-control" readonly />
+</div>
+
+<div class="form-group">
+    <label asp-for="@Model.DepartmentId" class="col-form-label"></label>
+    @if (departments.Any())
+    {
+        <select class="form-control" readonly>
+            <option value="@departments"></option>
+        </select>
+    }
+    else
+    {
+        <input type="text" class="form-control" value="No departments available" readonly />
+    }
+    @*<select type="text" asp-for="@Model.DepartmentId" asp-items="@departments.FirstOrDefault(d => d.Value == Model.DepartmentId.ToString())?.Text()" class="form-control" readonly />*@
+</div>
+
+<div class="form-group form-check mb-6">
+    <input class="form-check-input" type="checkbox" asp-for="@Model.IsActive" />
+    <label class="form-check-label" asp-for="@Model.IsActive" readonly></label>
+</div>

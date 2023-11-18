@@ -1,0 +1,97 @@
+﻿@*@model DepartmentViewModel
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1 class="text-success text-center">Department Details</h1>
+<br />
+
+<div class="row">
+    <div class="col-12">
+        <div class="form-group">
+            <label asp-for="@Model.Code" class="col-form-label"></label>
+            <input asp-for="@Model.Code" class="form-control" readonly/>
+        </div>
+        <div class="form-group">
+            <label asp-for="@Model.Name" class="col-form-label"></label>
+            <input asp-for="@Model.Name" class="form-control" readonly />
+        </div>
+        <div class="form-group">
+            <label asp-for="@Model.DateOfCreation" class="col-form-label"></label>
+            <input asp-for="@Model.DateOfCreation" class="form-control" readonly />
+        </div>
+        <br />
+        <a class="btn btn-success" asp-action="Update" asp-route-id="@Model.Id">Update</a>
+        <a class="btn btn-light" asp-action="Index">Back To List</a>
+    </div>
+</div>*@
+
+@model DepartmentViewModel
+@{
+    ViewData["Title"] = "Details";
+}
+
+<style>
+    body {
+        background-image: url('https://img.freepik.com/premium-vector/circuit-technology-background-with-hi-tech-digital-data-connection-system-computer-electronic-design_29971-914.jpg?w=2000');
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+
+    .card {
+        background-color: rgba(255, 255, 255, 0.9);
+        border: 1px solid #ced4da;
+        border-radius: 5px;
+        padding: 20px;
+    }
+
+    h1 {
+        color: black;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    .form-group label {
+        color: #343a40;
+    }
+
+    .btn-success {
+        background-color: #28a745;
+        color: #fff;
+    }
+
+    .btn-light {
+        background-color: #f8f9fa;
+        color: #343a40;
+        border: 1px solid #ced4da;
+    }
+</style>
+
+<h1>Department Details</h1>
+
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+                <div class="form-group">
+                    <label asp-for="@Model.Code" class="col-form-label">Code:</label>
+                    <input asp-for="@Model.Code" class="form-control" readonly />
+                </div>
+                <div class="form-group">
+                    <label asp-for="@Model.Name" class="col-form-label">Name:</label>
+                    <input asp-for="@Model.Name" class="form-control" readonly />
+                </div>
+                <div class="form-group">
+                    <label asp-for="@Model.DateOfCreation" class="col-form-label">Date of Creation:</label>
+                    <input asp-for="@Model.DateOfCreation" class="form-control" readonly />
+                </div>
+                <br />
+                <div class="d-flex justify-content-end">
+                    <a class="btn btn-success mr-2" asp-action="Update" asp-route-id="@Model.Id">Update</a>
+                    <a class="btn btn-light" asp-action="Index">Back To List</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
