@@ -9,11 +9,6 @@ namespace Demo.BLL.Interfaces
 {
     public interface IDepartmentRepository : IGenericRepository<Department>
     {
-        //Department GetDepartmentById (int? id);
-        //IEnumerable<Department> GetAllDepartments();
-        //int Add(Department department);
-        //int Update(Department department);
-        //int Delete(Department department);
         Department GetDepartmentNameByIdOfEmployee(int? id);
     }
 }
